@@ -1,0 +1,17 @@
+package passEnc;
+
+public class PasswordEnc {
+	
+public static  void main(String args[])
+{
+	AesEnc x = new AesEnc();
+    String originalString = "sarvesh";
+     
+    String encryptedString = AesEnc.encrypt(originalString, x.secretKey) ;
+    String decryptedString = aesDec.decrypt(encryptedString, x.secretKey) ;
+      
+    System.out.println(originalString);
+    System.out.println(encryptedString);
+    System.out.println(decryptedString);
+}
+}

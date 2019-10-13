@@ -1,0 +1,27 @@
+package passEnc;
+
+public class PasswordEnc {
+	
+public String enc(String password)
+{
+	AesEnc x = new AesEnc();
+    String originalString = password;
+     
+    String encryptedString = AesEnc.encrypt(originalString, x.secretKey) ;
+    String decryptedString = aesDec.decrypt(encryptedString, x.secretKey) ;
+      
+   return encryptedString;
+    
+}
+public String dec(String password)
+{
+	AesEnc x = new AesEnc();
+    
+     
+   // String encryptedString = AesEnc.encrypt(originalString, x.secretKey) ;
+    String decryptedString = aesDec.decrypt(password, x.secretKey) ;
+    System.out.print(decryptedString);
+    return decryptedString;
+	
+}
+}

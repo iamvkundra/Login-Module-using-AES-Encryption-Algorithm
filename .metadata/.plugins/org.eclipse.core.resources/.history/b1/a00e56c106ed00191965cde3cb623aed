@@ -1,0 +1,29 @@
+package Connection;
+
+import java.beans.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.*;
+public class OracleConnection {
+
+	Connection con;
+	Statement str;
+	ResultSet rs;
+	PreparedStatement pst;
+	public void connect()
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con=DriverManager.getConnection("jdbc:oracle:thin:"+ "@localhost:1521:XE","system","mummy1234");
+			
+			str=con.createStatement();
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

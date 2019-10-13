@@ -1,0 +1,33 @@
+package valid;
+
+import Connection.OracleConnection;
+
+public class ValidationHere {
+	
+	public boolean  validLogin(String username, String password)
+	{
+		OracleConnection x = new OracleConnection();
+		
+		String dataPass = x.executeLogin(username);
+		
+		if(password.equals(dataPass))
+		{
+			
+			return true;
+		}
+		return false;		
+	}
+	public boolean register(String username, String password)
+	{
+		OracleConnection x = new OracleConnection();
+		boolean b= x.InsertAccount(username,password);
+		
+		if(b)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+
+}

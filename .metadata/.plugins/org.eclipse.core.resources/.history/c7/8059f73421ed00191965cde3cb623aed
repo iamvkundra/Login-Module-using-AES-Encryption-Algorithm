@@ -1,0 +1,23 @@
+package Connection;
+
+public class validation {
+	
+	OracleConnection x = new OracleConnection();
+	
+	public boolean valid(String username, String password)
+	{
+		
+		String pass = x.executeLogin(username);
+		
+		if(pass.equals(password))
+		{
+			System.out.print("EVERYTRUE");
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+}

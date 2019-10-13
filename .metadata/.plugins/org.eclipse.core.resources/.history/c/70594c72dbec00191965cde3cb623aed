@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="newLogin">
+        <property name="context-root" value="newLogin"/>
+        <property name="java-output-path" value="/newLogin/build/classes"/>
+    </wb-module>
+</project-modules>

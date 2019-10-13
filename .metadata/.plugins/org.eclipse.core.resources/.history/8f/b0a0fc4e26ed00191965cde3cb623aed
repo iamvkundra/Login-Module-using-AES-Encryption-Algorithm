@@ -1,0 +1,29 @@
+package valid;
+
+import Connection.OracleConnection;
+
+public class ValidationHere {
+	
+	public void  validLogin(String username, String password)
+	{
+		OracleConnection x = new OracleConnection();
+		
+		String dataPass = x.executeLogin(username);
+		//System.out.print(dataPass);
+		if(password.equals(dataPass))
+		{
+			//System.out.print("HELLo");
+			return true;
+		}
+		return false;
+		
+		
+	}
+	public static void main(String args[])
+	{
+		ValidationHere x = new ValidationHere();
+		x.validLogin("mkmayank39@gmail.com", "mummy1234");
+		
+	}
+
+}

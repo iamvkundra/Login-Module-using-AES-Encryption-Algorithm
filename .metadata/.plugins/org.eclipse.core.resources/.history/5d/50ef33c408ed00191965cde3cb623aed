@@ -1,0 +1,64 @@
+package Connection;
+
+import java.beans.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.*;
+public class OracleConnection {
+
+	Connection con;
+	Statement str;
+	ResultSet rs;
+	PreparedStatement pst;
+	public void connect()
+	{
+		try
+		{
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con=DriverManager.getConnection("jdbc:oracle:thin:"+ "@localhost:1521:XE","system","mummy1234");
+			
+			str=(Statement) con.createStatement();
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void executeLogin(String username)
+	{
+		connect();
+		
+		String pass1="";
+		try
+		{
+			pst = con.prepareStatement("SELECT * FROM userlogin where email=?");
+			pst.setString(1, username);
+			rs= pst.executeQuery();
+			while(rs.next())
+			{
+				pass1=rs.getString(2);
+			}
+			
+			//str.close();
+			con.close();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			
+		System.out.print(pass1);
+		}
+		
+	}
+	public static void main(String args[])
+	{
+		OracleConnection  x = new OracleConnection ();
+		x.executeLogin("mkmayank39@gmail.com");
+	}
+}
